@@ -1,4 +1,5 @@
 import 'package:finalprojectmobile/homepage.dart';
+import 'package:finalprojectmobile/list.dart';
 import 'package:finalprojectmobile/login.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -9,7 +10,8 @@ import 'package:finalprojectmobile/favorite_model.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter<FavoriteModel>(FavoriteModelAdapter());
-  await Hive.openBox<FavoriteModel>("favoritesBox");
+  await Hive.openBox<FavoriteModel>("favorit");
+
   runApp(const MyApp());
 }
 
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
 
-      home: LoginPage(),
+      home: TeamListPage(),
     );
   }
 }

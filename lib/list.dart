@@ -1,6 +1,7 @@
 
 import 'package:finalprojectmobile/detailpage.dart';
 import 'package:finalprojectmobile/homepage.dart';
+import 'package:finalprojectmobile/listFavorite.dart';
 import 'package:finalprojectmobile/profil.dart';
 import 'package:flutter/material.dart';
 import 'base_network.dart';
@@ -21,8 +22,7 @@ class _TeamListPageState extends State<TeamListPage> {
 
   ];
 
-  final ApiSource ApiTeam =
-  ApiSource();
+  final ApiSource ApiTeam = ApiSource();
   late List<Teams> teams;
 
   @override
@@ -67,7 +67,7 @@ class _TeamListPageState extends State<TeamListPage> {
         padding: const EdgeInsets.all(5),
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1, // Set the number of columns in the grid
+            crossAxisCount: 3, // Set the number of columns in the grid
             crossAxisSpacing: 8.0, // Set the spacing between columns
             mainAxisSpacing: 8.0, // Set the spacing between rows
           ),
@@ -100,7 +100,7 @@ class _TeamListPageState extends State<TeamListPage> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 40
+                          fontSize:18
                         ),
                       ),
                     ),
@@ -122,9 +122,9 @@ class _TeamListPageState extends State<TeamListPage> {
           if (index == 1) {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => Homepgae()),
+              MaterialPageRoute(builder: (context) => FavoriteListPage()),
             );
-          } if (index == 2) {
+          }if (index == 2) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => ProfilePage()),

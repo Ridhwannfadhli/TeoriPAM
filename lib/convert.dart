@@ -15,12 +15,6 @@ class _CurrencyConverterScreenState extends State<CurrencyConverterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Konversi Mata Uang'),
-        backgroundColor: Colors.greenAccent[700],
-        foregroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -124,12 +118,6 @@ class _TimeConverterScreenState extends State<TimeConverterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Konversi Waktu'),
-        backgroundColor: Colors.greenAccent[700],
-        foregroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

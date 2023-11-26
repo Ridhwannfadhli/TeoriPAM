@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'favorite_model.dart';
-import 'model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+import 'model.dart';
 
 class DetailPage extends StatefulWidget {
   final Teams? teams;
@@ -19,21 +20,37 @@ class _DetailPageState extends State<DetailPage> {
   @override
   void initState() {
     super.initState();
-    favoritesBox = Hive.box<FavoriteModel>('favoritesBox');
+    favoritesBox = Hive.box<FavoriteModel>('favorit');
   }
 
   bool isFavorite(String idTeam) {
     return favoritesBox.containsKey(idTeam);
   }
 
-  void toggleFavorite() {
+  void toggleFavorite(BuildContext context) {
     final String idTeam = widget.teams?.idTeam ?? '';
     if (isFavorite(idTeam)) {
       favoritesBox.delete(idTeam);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Removed from favorites'),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 1),
+        ),
+      );
     } else {
-      favoritesBox.put(idTeam, FavoriteModel(idTeam: idTeam, isFavorite: true));
+      favoritesBox.put(
+        idTeam,
+        FavoriteModel(idTeam: idTeam, isFavorite: true),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Added to favorites'),
+          backgroundColor: Colors.green,
+          duration: Duration(seconds: 1),
+        ),
+      );
     }
-
     setState(() {});
   }
 
@@ -57,12 +74,14 @@ class _DetailPageState extends State<DetailPage> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: toggleFavorite,
+            onPressed: () => toggleFavorite(context),
             icon: Icon(
-              isFavorite(widget.teams?.idTeam ?? '')
+              isFavorite('${widget.teams?.idTeam}' ?? '')
                   ? Icons.bookmark
                   : Icons.bookmark_border,
-              color: isFavorite(widget.teams?.idTeam ?? '') ? Colors.yellow : null,
+              color: isFavorite('${widget.teams?.idTeam}' ?? '')
+                  ? Colors.yellow
+                  : null,
             ),
           ),
         ],
@@ -147,11 +166,18 @@ class _DetailPageState extends State<DetailPage> {
                           padding: EdgeInsets.all(8),
                           child: Column(
                             children: [
-                              Text(
-                                'Description',
-                                style: TextStyle(
+                              Container(
+                                decoration: BoxDecoration(
                                   color: Colors.white,
-                                  fontWeight: FontWeight.bold,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                padding: EdgeInsets.all(8),
+                                child: Text(
+                                  'Description',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                               SizedBox(height: 8),

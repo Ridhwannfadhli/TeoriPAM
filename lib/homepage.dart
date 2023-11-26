@@ -1,4 +1,5 @@
 import 'package:finalprojectmobile/convert.dart';
+import 'package:finalprojectmobile/listFavorite.dart';
 
 import 'package:finalprojectmobile/profil.dart';
 import 'package:flutter/material.dart';
@@ -125,7 +126,7 @@ class _HomepgaeState extends State<Homepgae> {
           if (index == 1) {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => ProfilePage()),
+              MaterialPageRoute(builder: (context) => FavoriteListPage()),
             );
           }
           if (index == 2) {
