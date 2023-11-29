@@ -15,12 +15,7 @@ class TeamListPage extends StatefulWidget {
 
 class _TeamListPageState extends State<TeamListPage> {
   int _currentIndex = 0;
-  final List<Widget> _screens = [
-    TeamListPage(),
-    ProfilePage(),
 
-
-  ];
 
   final ApiSource ApiTeam = ApiSource();
   late List<Teams> teams;

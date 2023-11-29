@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:crypto/crypto.dart';
 import 'package:finalprojectmobile/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -11,6 +14,30 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  late SharedPreferences logindata;
+  late bool newuser;
+  @override
+  void initState() {
+// TODO: implement initState
+    super.initState();
+    check_if_already_login();
+  }
+  void check_if_already_login() async {
+    logindata = await SharedPreferences.getInstance();
+    newuser = (logindata.getBool('login') ?? true);
+    print(newuser);
+    if (newuser == false) {
+      Navigator.pushReplacement(
+          context, new MaterialPageRoute(builder: (context) => Homepgae()));
+    }
+  }
+  @override
+  void dispose() {
+// Clean up the controller when the widget is disposed.
+    usernameController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
 
   @override
@@ -78,11 +105,15 @@ class _LoginPageState extends State<LoginPage> {
                     String password = passwordController.text;
 
                     // Contoh validasi sederhana
-                    if (username == '1' && password == '1') {
-                      SharedPreferences prefs = await SharedPreferences.getInstance();
-                      prefs.setBool('isLoggedIn', true);
-                      prefs.setString('username', username);
+                    final hashedPassword = sha256.convert(utf8.encode('admin')).toString();
+
+                    final enteredHashPassword = sha256.convert(utf8.encode(password)).toString();
+
+                    if (username == 'admin' && enteredHashPassword == hashedPassword) {
                       // Jika login berhasil, pindah ke halaman lain atau lakukan tindakan lainnya
+                      print(enteredHashPassword);
+                      logindata.setBool('login', false);
+                      logindata.setString('username', username);
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => Homepgae()),

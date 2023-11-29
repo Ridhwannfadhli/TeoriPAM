@@ -43,7 +43,9 @@ class _FavoriteListPageState extends State<FavoriteListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.greenAccent[700],
         title: Text('Favorite Teams'),
+        centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => TeamListPage()));

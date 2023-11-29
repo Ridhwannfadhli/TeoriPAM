@@ -3,6 +3,7 @@ import 'package:finalprojectmobile/listFavorite.dart';
 
 import 'package:finalprojectmobile/profil.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'list.dart';
 
@@ -15,6 +16,21 @@ class Homepgae extends StatefulWidget {
 
 class _HomepgaeState extends State<Homepgae> {
   int _selectedIndex = 0;
+  late SharedPreferences logindata;
+  late String username;
+  @override
+  void initState() {
+// TODO: implement initState
+    super.initState();
+    initial();
+  }
+
+  void initial() async {
+    logindata = await SharedPreferences.getInstance();
+    setState(() {
+      username = logindata.getString('username')!;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

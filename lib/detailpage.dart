@@ -57,7 +57,6 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.greenAccent[700],
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: Center(
@@ -90,17 +89,30 @@ class _DetailPageState extends State<DetailPage> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding:  EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Center(
-                    child: Text(
-                      '${widget.teams?.strKeywords ?? 'Unknown'} ',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.greenAccent[700],
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    padding: EdgeInsets.all(8),
+                    child: Center(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        padding: EdgeInsets.all(8),
+                        child: Text(
+                          '${widget.teams?.strKeywords ?? 'Unknown'} ',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -118,33 +130,39 @@ class _DetailPageState extends State<DetailPage> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.greenAccent[700],
                             borderRadius: BorderRadius.circular(8),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: Offset(0, 3),
-                              ),
-                            ],
                           ),
                           padding: EdgeInsets.all(8),
                           child: Column(
                             children: [
-                              Text(
-                                'Formed Year',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
+                              Container(
+                                decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                                padding: EdgeInsets.all(8),
+                                child: Text(
+                                  'Formed Year',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                               SizedBox(height: 5),
-                              Text(
-                                '${widget.teams?.intFormedYear}',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.normal,
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                padding: EdgeInsets.all(8),
+                                child: Text(
+                                  '${widget.teams?.intFormedYear}',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                                 ),
                               ),
                             ],
@@ -252,65 +270,78 @@ class _DetailPageState extends State<DetailPage> {
               padding: const EdgeInsets.all(8.0),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Stadium',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    _buildStadiumInfo(
-                      'Stadium Name:',
-                      '${widget.teams?.strStadium ?? 'Unknown'}',
-                    ),
-                    _buildStadiumInfo(
-                      'Stadium Capacity:',
-                      '${widget.teams?.intStadiumCapacity ?? 'Unknown'}',
-                    ),
-                    _buildStadiumInfo(
-                      'Stadium Location:',
-                      '${widget.teams?.strStadiumLocation ?? 'Unknown'}',
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Stadium Description:',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Container(
-                      padding: EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: Offset(0, 3),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.greenAccent[700],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  padding: EdgeInsets.all(8),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        padding: EdgeInsets.all(8),
+                        child: Text(
+                          'Stadium',
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ],
+                        ),
                       ),
-                      child: Text(
-                        '${widget.teams?.strStadiumDescription ?? 'No description available.'}',
+                      SizedBox(height: 10),
+                      _buildStadiumInfo(
+                        'Stadium Name:',
+                        '${widget.teams?.strStadium ?? 'Unknown'}',
+                      ),
+                      _buildStadiumInfo(
+                        'Stadium Capacity:',
+                        '${widget.teams?.intStadiumCapacity ?? 'Unknown'}',
+                      ),
+                      _buildStadiumInfo(
+                        'Stadium Location:',
+                        '${widget.teams?.strStadiumLocation ?? 'Unknown'}',
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Stadium Description:',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
-                        textAlign: TextAlign.justify,
                       ),
-                    ),
-                  ],
+                      SizedBox(height: 8),
+                      Container(
+                        padding: EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Text(
+                          '${widget.teams?.strStadiumDescription ?? 'No description available.'}',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                          textAlign: TextAlign.justify,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -331,12 +362,14 @@ class _DetailPageState extends State<DetailPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
+        Container(
+          child: Text(
+            title,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
           ),
         ),
         SizedBox(height: 5),
