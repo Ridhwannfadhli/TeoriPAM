@@ -114,7 +114,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
               ListTile(
                 title: Text(
-                  'Saran : Tugasnya sepertinya kurang banyak, jadi mungkin bisa ditambah lagi untuk tugasnya',
+                  'Saran : Saran saya setiap mahasiswa harus lebih giat lagi dalam Aplikasi Pemrograman Mobile ini. karena '
+                      'kemauan adalah kunci agar dapat belajar coding',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -124,7 +125,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               ListTile(
                 title: Text(
-                  'Kesan : Pemrograman mobile ini sangat menarik dan menyenangkan, apalagi jika diajar oleh pak Bagus ',
+                  'Kesan : Kesan yang saya dapatkan dalam Pemrograman Mobile ini sangat menarik dan menyenangkan. '
+                      'Setiap hari Jumat saya selalu menunggu tugas yang diberikan pak bagus, '
+                      'karena tugas dari pak Bagus menyenangkan dan tidak membebankan ',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

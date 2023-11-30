@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Liga Bola Indonesia'),
+        title: Text('IndoFutbol League'),
         titleTextStyle: TextStyle(
           fontSize: 20,
           color: Colors.white,
@@ -60,6 +60,12 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Image.asset(
+                'assets/img/logo.jpg',
+                height: 200,
+                width: 200,
+              ),
+              SizedBox(height: 20,),
               // Login Greeting
               Text(
                 'Welcome, Silahkan Login',
@@ -105,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                     String password = passwordController.text;
 
                     // Contoh validasi sederhana
-                    final hashedPassword = sha256.convert(utf8.encode('admin')).toString();
+                    final hashedPassword = sha256.convert(utf8.encode('123')).toString();
 
                     final enteredHashPassword = sha256.convert(utf8.encode(password)).toString();
 

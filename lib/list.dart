@@ -49,13 +49,8 @@ class _TeamListPageState extends State<TeamListPage> {
         backgroundColor: Colors.greenAccent[700],
         foregroundColor: Colors.white,
         centerTitle: true,
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
+        automaticallyImplyLeading: true,
+
       ),
       body: teams != null
           ? Padding(

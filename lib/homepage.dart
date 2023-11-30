@@ -38,7 +38,7 @@ class _HomepgaeState extends State<Homepgae> {
       appBar: AppBar(
         title: Center(
           child: Text(
-            "Liga Indonesia",
+            "IndoFutbol League",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -106,7 +106,7 @@ class _HomepgaeState extends State<Homepgae> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Icon(
-                          Icons.timelapse, // Ganti dengan ikon yang diinginkan
+                          Icons.currency_exchange, // Ganti dengan ikon yang diinginkan
                           size: 100,
                           color: Colors.blue,
                         ),

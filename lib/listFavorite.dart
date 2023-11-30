@@ -1,3 +1,4 @@
+import 'package:finalprojectmobile/homepage.dart';
 import 'package:finalprojectmobile/list.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -48,7 +49,7 @@ class _FavoriteListPageState extends State<FavoriteListPage> {
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => TeamListPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Homepgae()));
           },
           icon: Icon(Icons.arrow_back),
         ),
